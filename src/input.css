@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* 1. Gerakan bolak-balik dari kanan ke kiri layar */
+  @keyframes battle-traverse {
+    0%,
+    100% {
+      transform: translateX(calc(100vw - 220px));
+    }
+    50% {
+      transform: translateX(0);
+    }
+  }
+
+  /* 2. Animasi tebasan pedang kiri (Kuning/Emas) */
+  @keyframes sword-left-attack {
+    0%,
+    100%,
+    40%,
+    60% {
+      transform: rotate(35deg) translate(0, 0);
+    }
+    50% {
+      transform: rotate(70deg) translate(25px, -15px);
+    }
+  }
+
+  /* 3. Animasi tebasan pedang kanan (Merah) */
+  @keyframes sword-right-attack {
+    0%,
+    100%,
+    40%,
+    60% {
+      transform: rotate(-35deg) translate(0, 0);
+    }
+    50% {
+      transform: rotate(-70deg) translate(-25px, -15px);
+    }
+  }
+
+  /* 4. Efek kilatan cahaya saat benturan */
+  @keyframes spark-clash {
+    0%,
+    45%,
+    55%,
+    100% {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.8);
+    }
+  }
+
+  /* Registrasi Utility Classes ke Tailwind v4 */
+  --animate-battle-traverse: battle-traverse 6s linear infinite;
+  --animate-sword-left: sword-left-attack 0.6s ease-in-out infinite;
+  --animate-sword-right: sword-right-attack 0.6s ease-in-out infinite;
+  --animate-spark: spark-clash 0.6s ease-in-out infinite;
+}
