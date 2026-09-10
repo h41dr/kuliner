@@ -51,7 +51,7 @@
       >
         <div>
           <img
-            src="./Tugas-tailwind/atribut/Chef nailong.jpg"
+            src="./Tugas-tailwind/atribut/ye.jpg"
             alt="Chef"
             class="h-[250px] w-[250px] object-cover rounded-full md:h-[400px] md:w-[400px]"
           />
@@ -162,6 +162,8 @@
 
     <script>
       // On page load, set the theme from localStorage or system settings
+
+      // ngambil tema dari localstorage tema dari windows atau browser
       if (
         localStorage.theme === "dark" ||
         (!("theme" in localStorage) &&
@@ -171,6 +173,9 @@
       } else {
         document.documentElement.classList.remove("dark");
       }
+
+      //  membuat fitur tombol pengubah tema (Dark Mode / Light Mode) pada website dan menyimpan pilihan tema tersebut
+
       const themeToggle = document.getElementById("theme-toggle");
       themeToggle.addEventListener("click", () => {
         document.documentElement.classList.toggle("dark");
